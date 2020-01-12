@@ -23,7 +23,7 @@ public class AuthenticationController {
 
     @RequestMapping("authenticate")
     public AuthenticationResponse authenticate(@RequestBody(required = false) AuthenticationRequest authenticationRequest) {
-        String token = "";
+        String token;
 
         try {
             Authentication authentication = authenticationManager.authenticate(
