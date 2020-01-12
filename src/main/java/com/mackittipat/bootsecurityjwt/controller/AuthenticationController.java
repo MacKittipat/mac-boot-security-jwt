@@ -34,6 +34,7 @@ public class AuthenticationController {
             token = JwtUtil.generateToken(authentication);
         } catch (BadCredentialsException e) {
             log.info("User {} try to login with incorrect password", authenticationRequest.getUsername());
+            throw new BadCredentialsException("User try to login with incorrect password");
         }
         return AuthenticationResponse.builder().token(token).build();
     }
